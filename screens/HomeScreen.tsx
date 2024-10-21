@@ -1,11 +1,14 @@
 import { ScrollView, StyleSheet } from "react-native";
 import { Card, Text } from "react-native-paper";
-import { mockedPosts } from "../data";
+import { useAppSelector } from "../store/hooks";
+import { selectPosts } from "../store/postsSlice";
 
 export default function HomeScreen() {
+  const posts = useAppSelector(selectPosts);
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {mockedPosts.map((p) => (
+      {posts.map((p) => (
         <Card key={p.id}>
           <Card.Title title={p.title} />
           <Card.Content>
