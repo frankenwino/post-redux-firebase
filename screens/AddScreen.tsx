@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { useAppDispatch } from "../store/hooks";
-import { addPost } from "../store/postsSlice";
+import { addPost } from "../store/posts/postsActions";
 
 export default function AddScreen() {
   const dispatch = useAppDispatch();

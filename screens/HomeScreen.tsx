@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet } from "react-native";
 import { Card, Text } from "react-native-paper";
 import { useAppSelector } from "../store/hooks";
-import { selectPostsWithAuthor } from "../store/postsSlice";
+import { selectPostsWithAuthor } from "../store/posts/postsSlice";
 
 export default function HomeScreen() {
   const posts = useAppSelector(selectPostsWithAuthor);
