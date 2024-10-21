@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { addPost } from "../store/posts/postsActions";
+import { selectPostsIsLoading } from "../store/posts/postsSlice";
 
 export default function AddScreen() {
   const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectPostsIsLoading);
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
@@ -22,7 +25,9 @@ export default function AddScreen() {
         numberOfLines={5}
         onChangeText={setBody}
       />
-      <Button onPress={handleSubmit}>Submit</Button>
+      <Button onPress={handleSubmit} disabled={isLoading}>
+        Submit
+      </Button>
     </View>
   );
 }
