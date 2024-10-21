@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { mockedPosts, Post } from "../data";
+import { mockedPosts, Post, PostCreate } from "../data";
 import { RootState } from "./store";
 
 // SET UP STATE
@@ -11,8 +11,12 @@ const postSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    addPost: (state, action: PayloadAction<Post>) => {
-      state.push(action.payload);
+    addPost: (state, action: PayloadAction<PostCreate>) => {
+      state.push({
+        id: Date.now().toString(),
+        userId: "1",
+        ...action.payload,
+      });
     },
   },
 });

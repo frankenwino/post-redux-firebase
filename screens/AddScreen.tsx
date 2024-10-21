@@ -10,13 +10,7 @@ export default function AddScreen() {
   const [body, setBody] = useState("");
 
   const handleSubmit = () => {
-    dispatch(
-      addPost({
-        id: Date.now().toString(),
-        title,
-        body,
-      })
-    );
+    dispatch(addPost({ title, body }));
   };
   return (
     <View style={styles.container}>
