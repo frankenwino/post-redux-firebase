@@ -1,10 +1,10 @@
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { Card, Text } from "react-native-paper";
 import { mockedPosts } from "../data";
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       {mockedPosts.map((p) => (
         <Card key={p.id}>
           <Card.Title title={p.title} />
@@ -13,7 +13,7 @@ export default function HomeScreen() {
           </Card.Content>
         </Card>
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
