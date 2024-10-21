@@ -13,7 +13,7 @@ const initialState: UsersState = {
 };
 
 // SLICE
-const userSlice = createSlice({
+export const userSlice = createSlice({
   name: "users",
   initialState,
   reducers: {},

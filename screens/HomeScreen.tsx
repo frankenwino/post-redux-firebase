@@ -1,16 +1,16 @@
 import { ScrollView, StyleSheet } from "react-native";
 import { Card, Text } from "react-native-paper";
 import { useAppSelector } from "../store/hooks";
-import { selectPosts } from "../store/postsSlice";
+import { selectPostsWithAuthor } from "../store/postsSlice";
 
 export default function HomeScreen() {
-  const posts = useAppSelector(selectPosts);
+  const posts = useAppSelector(selectPostsWithAuthor);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {posts.map((p) => (
         <Card key={p.id}>
-          <Card.Title title={p.title} />
+          <Card.Title title={p.title} subtitle={p.user?.name} />
           <Card.Content>
             <Text>{p.body}</Text>
           </Card.Content>
